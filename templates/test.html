@@ -1,0 +1,8 @@
+{% for post in news %}
+<h1>{{post.nomi}}</h1>
+<h3>{{post.malumot}}</h3>
+{% if post.image %}
+<img src="{{post.image.url}}">
+{% endif %}
+<p>${{post.narxi}}</p>
+{% endfor %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+      <!-- end header inner -->
+      <!-- end header -->
+      <!-- Our  Glasses section -->
+      <div class="glasses">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-10 offset-md-1">
+                  <div class="titlepage">
+                     <h2>Our Glasses</h2>
+                     <p style="background-color: black;">Biz bilan xaridlar yanada oson</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div div class="col-md-15 offset-md-2">
+         <button type="button" class="btn btn-outline-info">Primary</button>
+         <button type="button" class="btn btn-outline-info">Primary</button>
+         <button type="button" class="btn btn-outline-info">Primary</button>
+         <button type="button" class="btn btn-outline-info">Primary</button>
+         <button type="button" class="btn btn-outline-info">Primary</button>
+         <button type="button" class="btn btn-outline-info">Primary</button>
+         <button type="button" class="btn btn-outline-info">Primary</button>
+         <button type="button" class="btn btn-outline-info">Primary</button>
+         <button type="button" class="btn btn-outline-info">Primary</button>
+         <button type="button" class="btn btn-outline-info">Primary</button>
+      </div>
+         <div class="container-fluid">
+            <div class="row">
+                                 {% for post in page %}
+                  {% if 0 < forloop.counter0 and 9 > forloop.counter0 %}
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+
+                  <div class="glasses_box">
+                     {% if post.image %}
+                     <figure><img src="{{post.image.url}}" alt="#"/></figure>
+                     {% endif %}
+                     <h3><span class="blu">$</span>{{post.narxi}}</h3>
+                     <p id="soz">{{post.nomi}}</p>
+                  </div>
+
+               </div>
+                                 {% endif %}
+                  {% endfor  %}
+            </div>
+         </div>
+      </div>
+      <div div class="col-md-15 offset-md-5">
+         {% if page.has_previous %}
+         <button type="button" class="btn btn-outline-info"><a href="{% url 'glasses'%}?page={{page.previous_page_number }}">oldingi saxifa </button>
+         {% endif %}
+         {% if page.has_next %}
+         <button type="button" class="btn btn-outline-info"><a href="{% url 'glasses' %}?page={{page.next_page_number}}">keyngi saxifa </button>
+         {% endif %}
+      </div>
+{% endblock content %}
